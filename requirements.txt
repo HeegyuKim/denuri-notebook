@@ -1,5 +1,7 @@
-tensorflow2
+tensorflow
 pandas
 numpy
 matplotlib
 jupyter
+pymysql
+konlpy
