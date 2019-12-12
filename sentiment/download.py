@@ -5,7 +5,7 @@ import datetime
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--file", help="SQL File", nargs='?', type=str)
+parser.add_argument("--file", help="SQL File", nargs='?', type=str, default="../session/download_news.sql")
 parser.add_argument("--password", help="password", nargs='?', type=str)
 parser.add_argument("host", help="host name", nargs='?', type=str, default="denuri-db.cw5cwsrwvj2x.ap-northeast-2.rds.amazonaws.com")
 parser.add_argument("db", help="database name", nargs='?', type=str, default="denuri_db")
@@ -25,6 +25,8 @@ connection = pymysql.connect(host=args.host,
                              db=args.db,
                              charset=args.charset,
                              cursorclass=pymysql.cursors.DictCursor)
+
+print(f"Database is connected to {args.host}")
 
 with open(args.file) as f:
     sql = f.read()
